@@ -14,7 +14,7 @@ export const milestones: Milestone[] = [
     status: 'current',
     chips: ['HSITP Tenancy', 'IGNITE Application', 'MOU Signing'],
     details: [
-      'HSITP tenancy confirmed; 何土公司 as operating entity',
+      'HSITP tenancy confirmed; 港深創科園公司 as operating entity',
       'IGNITE grant application submitted',
       'Roy + 蔡錦輝 MOUs executed; IP clearance from HKMU',
     ],
