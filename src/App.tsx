@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { LanguageProvider, useLang } from './i18n/LanguageContext';
+import { t } from './i18n/ui';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import PolicySection from './components/PolicySection';
@@ -20,15 +22,16 @@ function getInitialTheme(): 'light' | 'dark' {
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
-export default function App() {
+function AppInner() {
   const [theme, setTheme] = useState<'light' | 'dark'>(getInitialTheme);
+  const lang = useLang();
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('metabee-theme', theme);
   }, [theme]);
 
-  useFadeIn([]);
+  useFadeIn([lang]);
 
   const toggleTheme = () => setTheme((t) => (t === 'light' ? 'dark' : 'light'));
 
@@ -50,8 +53,16 @@ export default function App() {
         <CTASection />
       </main>
       <footer className="footer">
-        <p>MetaBee.com (HK) &middot; Project Wasabi-GBA &middot; Confidential &middot; v1.0 &middot; 2026-03-30</p>
+        <p>{t('footer.text', lang)}</p>
       </footer>
     </>
+  );
+}
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <AppInner />
+    </LanguageProvider>
   );
 }

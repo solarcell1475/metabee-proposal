@@ -1,19 +1,20 @@
+import { useLang } from '../i18n/LanguageContext';
+import { t } from '../i18n/ui';
+
 export default function CTASection() {
+  const lang = useLang();
+
   return (
     <section id="cta" className="cta">
       <div className="cta__inner">
-        <h2 className="cta__title">Ready to Build the Future of GBA Health Data?</h2>
-        <p className="cta__sub">
-          MetaBee is positioned at the intersection of academic credibility,
-          regulatory privilege, and commercial opportunity. The policy windows
-          are open — now is the time to act.
-        </p>
+        <h2 className="cta__title">{t('cta.title', lang)}</h2>
+        <p className="cta__sub">{t('cta.sub', lang)}</p>
         <div className="cta__btns">
           <a className="btn-primary" href="mailto:bd@hkstp.org">
-            Contact HKSTP BD
+            {t('cta.contactHkstp', lang)}
           </a>
           <a className="btn-outline" href="#stakeholders">
-            Meet the Team
+            {t('cta.meetTeam', lang)}
           </a>
         </div>
       </div>

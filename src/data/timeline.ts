@@ -89,3 +89,86 @@ export const milestones: Milestone[] = [
     ],
   },
 ];
+
+export const milestones_zh: Milestone[] = [
+  {
+    period: '2026 Q2–Q3',
+    title: '奠基——架构与融资',
+    status: 'current',
+    chips: ['港深创科园租赁', 'IGNITE 申请', 'MOU 签署'],
+    details: [
+      '港深创科园租赁确认；港深创科园公司作为运营实体',
+      'IGNITE 拨款申请已提交',
+      'Roy + 蔡錦輝 MOU 已签署；HKMU IP 清理完成',
+    ],
+    budget: '天使轮 HK$2M + GAS HK$400K',
+  },
+  {
+    period: '2026 Q4',
+    title: '进入澳门——IRB 与拨款申请',
+    status: 'upcoming',
+    chips: ['FDCT 拨款已提交', '伦理咨询', 'FHIR Schema v1.0'],
+    details: [
+      'FDCT 拨款申请已提交（蔡錦輝任联合 PI）',
+      '葛磊医院领导层会议；伦理预咨询',
+      'FHIR 数据模式 v1.0 完成',
+    ],
+  },
+  {
+    period: '2027 Q1–Q2',
+    title: '试点启动——澳门 500 名患者筛查',
+    status: 'upcoming',
+    chips: ['澳门卫生局批准', '平台 v1 上线', '首位患者入组'],
+    details: [
+      '澳门卫生局试点审批通过',
+      '澳门筛查试点启动（目标 500 名患者）',
+      'MetaBee 数据平台 v1 上线',
+      '深圳伦理审批通过',
+    ],
+  },
+  {
+    period: '2027 Q3–Q4',
+    title: '扩展——深圳数据与认证',
+    status: 'future',
+    chips: ['300 名患者已筛查', 'PIPL-SCC 已执行', '数据集已认证'],
+    details: [
+      '500 名澳门患者完成；数据由蔡錦輝认证',
+      '首份 PIPL-SCC 合同已执行（深圳 → 香港）',
+      '中期临床论文已投稿',
+    ],
+  },
+  {
+    period: '2028 Q1–Q2',
+    title: '首次营收——数据集销售',
+    status: 'future',
+    chips: ['首个数据集售出', '论文已发表', '3,000 名患者已交付'],
+    details: [
+      '首个数据集售予制药买家——确认收入',
+      '临床验证论文已发表',
+      '深圳队列 3,000 名患者数据集已交付',
+    ],
+    budget: 'HK$6M 支出；HK$3–8M 收入目标',
+  },
+  {
+    period: '2028 Q3–Q4',
+    title: 'A 轮融资与交易所会员',
+    status: 'future',
+    chips: ['A 轮 HK$20M', '深圳数据交易所', '3 份 DUA 生效'],
+    details: [
+      'A 轮融资启动（目标 HK$20M）',
+      '深圳数据交易所会员已激活',
+      '3 份制药授权协议已生效',
+    ],
+  },
+  {
+    period: '2029–2030',
+    title: '大湾区 RWE 平台规模化',
+    status: 'future',
+    chips: ['5,000+ 患者', '多癌种', 'B 轮 HK$80M'],
+    details: [
+      '医管局数据实验室对接；香港前列腺癌队列数据纳入',
+      '扩展至结直肠癌数据（蔡錦輝既有研究记录）',
+      'B 轮 HK$80M 目标；扩展至心血管、糖尿病、肿瘤',
+    ],
+  },
+];

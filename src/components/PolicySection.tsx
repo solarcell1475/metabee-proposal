@@ -1,17 +1,19 @@
-import { policyWindows } from '../data/policyWindows';
+import { policyWindows, policyWindows_zh } from '../data/policyWindows';
+import { useLang } from '../i18n/LanguageContext';
+import { t } from '../i18n/ui';
 
 export default function PolicySection() {
+  const lang = useLang();
+  const data = lang === 'zh' ? policyWindows_zh : policyWindows;
+
   return (
     <section id="policy" className="section">
       <div className="container--wide">
-        <p className="section-label">Why Now</p>
-        <h2 className="section-title">Three <em>Policy Windows</em></h2>
-        <p className="section-lead">
-          A rare convergence of regulatory changes makes this the optimal moment
-          to build a cross-border health data business in the Greater Bay Area.
-        </p>
+        <p className="section-label">{t('policy.label', lang)}</p>
+        <h2 className="section-title">{t('policy.title.1', lang)}<em>{t('policy.title.2', lang)}</em></h2>
+        <p className="section-lead">{t('policy.lead', lang)}</p>
         <div className="card-grid">
-          {policyWindows.map((w) => (
+          {data.map((w) => (
             <div className="card fade-in" key={w.id}>
               <div className="card__icon card__icon--green">{w.icon}</div>
               <h3>{w.title}</h3>
@@ -20,7 +22,7 @@ export default function PolicySection() {
               </p>
               <p>{w.description}</p>
               <p style={{ marginTop: 'var(--space-3)', fontWeight: 600, fontSize: 'var(--text-sm)' }}>
-                Impact: {w.impact}
+                {t('policy.impact', lang)}: {w.impact}
               </p>
             </div>
           ))}

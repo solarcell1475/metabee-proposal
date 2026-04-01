@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { risks } from '../data/risks';
+import { risks, risks_zh } from '../data/risks';
+import { useLang } from '../i18n/LanguageContext';
+import { t } from '../i18n/ui';
 import { useFadeIn } from '../hooks/useFadeIn';
 
 function badgeColor(level: string): string {
@@ -17,23 +19,23 @@ function bgColor(level: string): string {
 type FilterLevel = 'all' | 'High' | 'Medium' | 'Low';
 
 export default function RiskSection() {
+  const lang = useLang();
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [filterLevel, setFilterLevel] = useState<FilterLevel>('all');
 
-  useFadeIn([filterLevel]);
+  useFadeIn([filterLevel, lang]);
 
+  const data = lang === 'zh' ? risks_zh : risks;
   const filtered = filterLevel === 'all'
-    ? risks
-    : risks.filter((r) => r.probability === filterLevel || r.impact === filterLevel);
+    ? data
+    : data.filter((r) => r.probability === filterLevel || r.impact === filterLevel);
 
   return (
     <section id="risks" className="section section--alt">
       <div className="container--wide">
-        <p className="section-label">Risk Management</p>
-        <h2 className="section-title">Risk <em>Matrix</em></h2>
-        <p className="section-lead">
-          10 identified risks with probability, impact, and mitigation strategies.
-        </p>
+        <p className="section-label">{t('risk.label', lang)}</p>
+        <h2 className="section-title">{t('risk.title.1', lang)}<em>{t('risk.title.2', lang)}</em></h2>
+        <p className="section-lead">{t('risk.lead', lang)}</p>
 
         <div className="filter-bar">
           {(['all', 'High', 'Medium', 'Low'] as FilterLevel[]).map((level) => (
@@ -42,7 +44,7 @@ export default function RiskSection() {
               className={`filter-btn ${filterLevel === level ? 'active' : ''}`}
               onClick={() => setFilterLevel(level)}
             >
-              {level === 'all' ? 'All Levels' : level}
+              {level === 'all' ? t('risk.allLevels', lang) : level}
             </button>
           ))}
         </div>
@@ -59,20 +61,14 @@ export default function RiskSection() {
                 <div className="risk-name">{r.id}: {r.name}</div>
                 <div className="risk-desc">{r.description}</div>
               </div>
-              <span
-                className="risk-badge"
-                style={{ background: bgColor(r.probability), color: badgeColor(r.probability) }}
-              >
+              <span className="risk-badge" style={{ background: bgColor(r.probability), color: badgeColor(r.probability) }}>
                 P: {r.probability}
               </span>
-              <span
-                className="risk-badge"
-                style={{ background: bgColor(r.impact), color: badgeColor(r.impact) }}
-              >
+              <span className="risk-badge" style={{ background: bgColor(r.impact), color: badgeColor(r.impact) }}>
                 I: {r.impact}
               </span>
               <div className="risk-mitigation">
-                <strong>Mitigation:</strong> {r.mitigation}
+                <strong>{t('risk.mitigation', lang)}:</strong> {r.mitigation}
               </div>
             </div>
           ))}

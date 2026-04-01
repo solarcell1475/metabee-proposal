@@ -334,3 +334,56 @@ export const categoryLabels: Record<ActionCategory, string> = {
   data: 'Data Operations',
   commercial: 'Commercial',
 };
+
+export const executionPhases_zh = [
+  {
+    phase: 1,
+    title: '第一阶段——实体与合规基础',
+    period: '2026 Q2–Q4',
+    objective: '建立法律实体、确保租赁、提交初始注册、在任何数据跨境前签署 MOU。',
+  },
+  {
+    phase: 2,
+    title: '第二阶段——临床与数据运营',
+    period: '2027 Q1–Q4',
+    objective: '获取所有伦理审批、启动试点筛查、执行 PIPL-SCC 合同、建立跨境数据管道。',
+  },
+  {
+    phase: 3,
+    title: '第三阶段——商业化与扩展',
+    period: '2028 Q1–Q4',
+    objective: '销售首批数据集、管理买方合规 (GDPR DPA)、激活深圳数据交易所会员、准备 A 轮融资。',
+  },
+] as const;
+
+export const executionPrinciples_zh = [
+  {
+    title: '先去标识化，再传输',
+    description: 'PIPL 第 73 条要求源头匿名化。每个数据集在任何跨境移动之前都在医院进行去标识化。这是不可妥协的，消除了 90% 的监管阻力。',
+  },
+  {
+    title: '控制在阈值以下',
+    description: '初始数据集保持在 100 万人以下，避免触发完整的 CAC 安全评估。阈值以下传输使用 GBA-SCC（标准合同条款）——比政府评估路径快得多。',
+  },
+  {
+    title: '按法域分层合规',
+    description: '每一跳数据增加一个合规层：源头 PIPL/LPDP → 跨境 PIPL-SCC → 香港 PDPO → 欧盟买家 GDPR DPA → 美国买家 FDA RWE。一次构建，每笔交易复用。',
+  },
+  {
+    title: '港深创科园白名单是护城河',
+    description: '最有价值的单一监管资产。备案模式（10 天）vs. 完整安全评估（12+ 个月）。必须优先确保并维持这一特权。',
+  },
+  {
+    title: '一切并行推进',
+    description: '澳门 IRB、深圳伦理审批和港深创科园注册可以同时进行。关键路径仅在第二阶段数据实际需要跨境时才汇聚。',
+  },
+];
+
+export const categoryLabels_zh: Record<ActionCategory, string> = {
+  registration: '注册登记',
+  ethics: '伦理审查',
+  contract: '合同与备忘录',
+  grant: '拨款与资助',
+  data: '数据运营',
+  commercial: '商业化',
+};

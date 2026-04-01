@@ -1,18 +1,22 @@
 import { useEffect, useState } from 'react';
+import { useLang, useLanguageCtx, type Lang } from '../i18n/LanguageContext';
+import { t } from '../i18n/ui';
 
-const sections = [
-  { id: 'hero', label: 'Home' },
-  { id: 'policy', label: 'Why Now' },
-  { id: 'business', label: 'Business Logic' },
-  { id: 'hsitp', label: 'HSITP' },
-  { id: 'stakeholders', label: 'Stakeholders' },
-  { id: 'timeline', label: 'Timeline' },
-  { id: 'market', label: 'Market' },
-  { id: 'compliance', label: 'Compliance' },
-  { id: 'risks', label: 'Risks' },
-  { id: 'budget', label: 'Budget' },
-  { id: 'execution', label: 'Execution' },
-];
+const sectionIds = ['hero', 'policy', 'business', 'hsitp', 'stakeholders', 'timeline', 'market', 'compliance', 'risks', 'budget', 'execution'] as const;
+
+const navKeys: Record<string, string> = {
+  hero: 'nav.home',
+  policy: 'nav.whyNow',
+  business: 'nav.businessLogic',
+  hsitp: 'nav.hsitp',
+  stakeholders: 'nav.stakeholders',
+  timeline: 'nav.timeline',
+  market: 'nav.market',
+  compliance: 'nav.compliance',
+  risks: 'nav.risks',
+  budget: 'nav.budget',
+  execution: 'nav.execution',
+};
 
 interface NavbarProps {
   theme: 'light' | 'dark';
@@ -20,6 +24,8 @@ interface NavbarProps {
 }
 
 export default function Navbar({ theme, onToggleTheme }: NavbarProps) {
+  const lang = useLang();
+  const { setLang } = useLanguageCtx();
   const [activeSection, setActiveSection] = useState('hero');
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -35,12 +41,14 @@ export default function Navbar({ theme, onToggleTheme }: NavbarProps) {
       { rootMargin: '-80px 0px -60% 0px', threshold: 0.1 },
     );
 
-    for (const s of sections) {
-      const el = document.getElementById(s.id);
+    for (const id of sectionIds) {
+      const el = document.getElementById(id);
       if (el) observer.observe(el);
     }
     return () => observer.disconnect();
   }, []);
+
+  const toggleLang = () => setLang((lang === 'en' ? 'zh' : 'en') as Lang);
 
   return (
     <>
@@ -55,16 +63,24 @@ export default function Navbar({ theme, onToggleTheme }: NavbarProps) {
           </a>
 
           <ul className="nav__links">
-            {sections.slice(1).map((s) => (
-              <li key={s.id}>
-                <a href={`#${s.id}`} className={activeSection === s.id ? 'active' : ''}>
-                  {s.label}
+            {sectionIds.slice(1).map((id) => (
+              <li key={id}>
+                <a href={`#${id}`} className={activeSection === id ? 'active' : ''}>
+                  {t(navKeys[id] as any, lang)}
                 </a>
               </li>
             ))}
           </ul>
 
           <div className="nav__right">
+            <button
+              className="btn-lang"
+              onClick={toggleLang}
+              aria-label="Switch language"
+              title={lang === 'en' ? '切换到中文' : 'Switch to English'}
+            >
+              {lang === 'en' ? '中文' : 'EN'}
+            </button>
             <button className="btn-theme" onClick={onToggleTheme} aria-label="Toggle theme">
               {theme === 'light' ? '🌙' : '☀️'}
             </button>
@@ -80,10 +96,10 @@ export default function Navbar({ theme, onToggleTheme }: NavbarProps) {
       </nav>
       <div className={`nav__mobile ${mobileOpen ? 'open' : ''}`}>
         <ul>
-          {sections.map((s) => (
-            <li key={s.id}>
-              <a href={`#${s.id}`} onClick={() => setMobileOpen(false)}>
-                {s.label}
+          {sectionIds.map((id) => (
+            <li key={id}>
+              <a href={`#${id}`} onClick={() => setMobileOpen(false)}>
+                {t(navKeys[id] as any, lang)}
               </a>
             </li>
           ))}

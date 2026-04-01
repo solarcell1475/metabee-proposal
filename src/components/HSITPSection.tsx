@@ -1,21 +1,21 @@
-import { hsitpPrivileges } from '../data/hsitp';
+import { hsitpPrivileges, hsitpPrivileges_zh } from '../data/hsitp';
+import { useLang } from '../i18n/LanguageContext';
+import { t } from '../i18n/ui';
 
 export default function HSITPSection() {
+  const lang = useLang();
+  const data = lang === 'zh' ? hsitpPrivileges_zh : hsitpPrivileges;
+
   return (
     <section id="hsitp" className="section">
       <div className="container--wide">
-        <p className="section-label">Unfair Advantage</p>
-        <h2 className="section-title">HSITP <em>Privileges</em></h2>
-        <p className="section-lead">
-          MetaBee.com (HK), as an HSITP-resident startup, holds privileges
-          unavailable to ordinary companies.
-        </p>
+        <p className="section-label">{t('hsitp.label', lang)}</p>
+        <h2 className="section-title">{t('hsitp.title.1', lang)} <em>{t('hsitp.title.2', lang)}</em></h2>
+        <p className="section-lead">{t('hsitp.lead', lang)}</p>
         <div className="card-grid">
-          {hsitpPrivileges.map((p) => (
+          {data.map((p) => (
             <div className="card fade-in" key={p.id}>
-              <div className={`card__icon card__icon--${p.colorClass}`}>
-                {p.icon}
-              </div>
+              <div className={`card__icon card__icon--${p.colorClass}`}>{p.icon}</div>
               <h3>{p.title}</h3>
               <p>{p.detail}</p>
               <p className="card__value">{p.value}</p>
