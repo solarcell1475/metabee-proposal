@@ -55,7 +55,7 @@ export const transferStack = [
   },
   {
     step: 3,
-    location: 'MetaBee HK Server (HKSTP)',
+    location: 'MetaBee HK Server (HSITP)',
     action: 'HSITP White-list Filing — 10 working days',
   },
   {
@@ -122,7 +122,7 @@ export const transferStack_zh = [
   },
   {
     step: 3,
-    location: 'MetaBee 香港服务器（HKSTP）',
+    location: 'MetaBee 香港服务器（HSITP）',
     action: '港深创科园白名单备案——10 个工作日',
   },
   {

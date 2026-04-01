@@ -88,7 +88,7 @@ export const stakeholders: Stakeholder[] = [
     role: 'Project Integrator, IP Holder & Data Broker',
     category: 'commercial',
     background: [
-      'HSITP-resident startup with HKSTP tenancy',
+      'HSITP-resident startup with HSITP tenancy',
       'Holds commercial rights to aggregate, package, and sell GBA health datasets',
       'Unique HSITP white-list status for data-across-border',
     ],
@@ -98,7 +98,7 @@ export const stakeholders: Stakeholder[] = [
       'Manage PIPL-SCC contracts for cross-border transactions',
       'Lead pharma buyer outreach and data licensing negotiations',
     ],
-    budgetIn: ['IGNITE grant HK$6M', 'GAS grant HK$400K', 'Data sales revenue HK$3–8M'],
+    budgetIn: ['IGNITE@HSITP HK$6M (awarded)', 'HK Healthcare AI Programme up to HK$5M', 'Data sales revenue HK$3–8M'],
     budgetOut: ['Platform development HK$500K', 'Legal & compliance HK$200K', 'Operations ~HK$1.5M/yr'],
   },
   {
@@ -110,9 +110,9 @@ export const stakeholders: Stakeholder[] = [
     role: 'Policy Authorisers & Funding Providers',
     category: 'government',
     background: [
-      'HKSTP / HSITP — tenancy + IGNITE + HA data access',
+      'HSITP — tenancy + IGNITE + HA data access',
       'FDCT — primary Macau research funder (MOP 2–5M)',
-      'Shenzhen Sci-Tech Commission — co-fund research (RMB 300–500K)',
+      'Shenzhen Sci-Tech — Strategic Emerging Industry Fund + Medical Research Fund (RMB 1.2–1.8M)',
     ],
     responsibilities: [
       'Provide grant funding and policy support',
@@ -120,7 +120,7 @@ export const stakeholders: Stakeholder[] = [
       'Hospital Authority Data Lab access for HSITP startups',
     ],
     budgetIn: ['Government public finance'],
-    budgetOut: ['IGNITE HK$6M', 'FDCT MOP 2–5M', 'Shenzhen grant RMB 300–500K'],
+    budgetOut: ['IGNITE HK$6M (awarded)', 'FDCT MOP 2–5M', 'Shenzhen Strategic Fund RMB 1.2M', 'Shenzhen Medical Research RMB 600K'],
   },
   {
     id: 'macau',
@@ -240,7 +240,7 @@ export const stakeholders_zh: Stakeholder[] = [
     role: '项目整合者、IP 持有者与数据经纪商',
     category: 'commercial',
     background: [
-      '港深创科园驻园初创企业，拥有 HKSTP 租赁',
+      '港深创科园驻园初创企业，拥有 HSITP 租赁',
       '持有汇总、打包和销售大湾区健康数据集的商业权利',
       '独特的港深创科园白名单跨境数据地位',
     ],
@@ -250,7 +250,7 @@ export const stakeholders_zh: Stakeholder[] = [
       '管理跨境交易的 PIPL-SCC 合同',
       '主导制药买家外联和数据授权谈判',
     ],
-    budgetIn: ['IGNITE 拨款 HK$6M', 'GAS 拨款 HK$400K', '数据销售收入 HK$3–8M'],
+    budgetIn: ['IGNITE@HSITP HK$6M（已获批）', '香港医疗 AI 计划最高 HK$5M', '数据销售收入 HK$3–8M'],
     budgetOut: ['平台开发 HK$500K', '法律与合规 HK$200K', '运营 ~HK$1.5M/年'],
   },
   {
@@ -262,9 +262,9 @@ export const stakeholders_zh: Stakeholder[] = [
     role: '政策授权者与资金提供者',
     category: 'government',
     background: [
-      'HKSTP / HSITP — 租赁 + IGNITE + 医管局数据访问',
+      'HSITP — 租赁 + IGNITE + 医管局数据访问',
       'FDCT — 澳门主要研究资助机构（MOP 2–5M）',
-      '深圳科技创新委员会——联合资助研究（RMB 300–500K）',
+      '深圳科创委——战略性新兴产业专项资金 + 医学研究专项资金（RMB 1.2–1.8M）',
     ],
     responsibilities: [
       '提供拨款资金和政策支持',
@@ -272,7 +272,7 @@ export const stakeholders_zh: Stakeholder[] = [
       '港深创科园初创企业医管局数据实验室访问权',
     ],
     budgetIn: ['政府公共财政'],
-    budgetOut: ['IGNITE HK$6M', 'FDCT MOP 2–5M', '深圳拨款 RMB 300–500K'],
+    budgetOut: ['IGNITE HK$6M（已拨付）', 'FDCT MOP 2–5M', '深圳战略产业资金 RMB 1.2M', '深圳医学研究资金 RMB 600K'],
   },
   {
     id: 'macau',

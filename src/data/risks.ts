@@ -15,7 +15,7 @@ export const risks: Risk[] = [
     probability: 'Low',
     impact: 'Critical',
     mitigation:
-      'Engage HKSTP policy team early; get written confirmation of scope',
+      'Engage HSITP policy team early; get written confirmation of scope',
   },
   {
     id: 'R2',
@@ -74,11 +74,11 @@ export const risks: Risk[] = [
   {
     id: 'R8',
     name: 'Cash runway exhaustion',
-    description: 'MetaBee cash runs out before IGNITE approval',
-    probability: 'High',
-    impact: 'High',
+    description: 'MetaBee cash runs low before next milestone disbursement',
+    probability: 'Low',
+    impact: 'Medium',
     mitigation:
-      'HIGHEST PRIORITY — close Angel round HK$2M before Q3 2026; maintain 12 months runway',
+      'IGNITE@HSITP already awarded (HK$6M). Disbursed in milestones every 6 months. Angel round HK$2M provides additional bridge. Maintain 12 months runway.',
   },
   {
     id: 'R9',
@@ -107,7 +107,7 @@ export const risks_zh: Risk[] = [
     description: '白名单政策逆转或适用范围缩小',
     probability: 'Low',
     impact: 'Critical',
-    mitigation: '提前与 HKSTP 政策团队沟通；获取适用范围书面确认',
+    mitigation: '提前与 HSITP 政策团队沟通；获取适用范围书面确认',
   },
   {
     id: 'R2',
@@ -160,10 +160,10 @@ export const risks_zh: Risk[] = [
   {
     id: 'R8',
     name: '现金流耗尽',
-    description: 'MetaBee 在 IGNITE 审批前现金用尽',
-    probability: 'High',
-    impact: 'High',
-    mitigation: '最高优先级——在 2026 Q3 前完成天使轮 HK$2M；维持 12 个月运营资金',
+    description: 'MetaBee 在下一次里程碑拨款前现金不足',
+    probability: 'Low',
+    impact: 'Medium',
+    mitigation: 'IGNITE@HSITP 已获批（HK$6M），每 6 个月按里程碑拨付。天使轮 HK$2M 提供额外桥接。维持 12 个月运营资金。',
   },
   {
     id: 'R9',

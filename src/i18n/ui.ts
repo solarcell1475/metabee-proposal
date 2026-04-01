@@ -188,7 +188,7 @@ const translations = {
     en: 'MetaBee is positioned at the intersection of academic credibility, regulatory privilege, and commercial opportunity. The policy windows are open — now is the time to act.',
     zh: 'MetaBee 处于学术可信度、监管特权和商业机遇的交汇点。政策窗口已经打开——现在就是行动的时刻。',
   },
-  'cta.contactHkstp': { en: 'Contact HKSTP BD', zh: '联系科技园商务' },
+  'cta.contactHkstp': { en: 'Contact HSITP BD', zh: '联系港深创科园商务' },
   'cta.meetTeam': { en: 'Meet the Team', zh: '认识团队' },
 
   // Footer

@@ -30,7 +30,7 @@ export const businessLayers: BusinessLayer[] = [
     steps: [
       'Macau Pilot Data → 蔡錦輝 AI Curation → FHIR-Structured Dataset',
       'Ge Lei (Shenzhen) historical cohort → 3,000+ patient dataset',
-      'Macau FDCT Funding + HK HSITP Grant → Operational runway',
+      'IGNITE@HSITP (awarded) + HK Healthcare AI + Macau FDCT + Shenzhen Funds → Operational runway',
     ],
   },
   {
@@ -72,7 +72,7 @@ export const businessLayers_zh: BusinessLayer[] = [
     steps: [
       '澳门试点数据 → 蔡錦輝 AI 整理 → FHIR 结构化数据集',
       '葛磊（深圳）历史队列 → 3,000+ 患者数据集',
-      '澳门 FDCT 资助 + 香港港深创科园拨款 → 运营资金',
+      'IGNITE@HSITP（已获批）+ 香港医疗 AI + 澳门 FDCT + 深圳基金 → 运营资金',
     ],
   },
   {
