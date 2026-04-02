@@ -110,14 +110,14 @@ export const stakeholders: Stakeholder[] = [
     role: 'Policy Authorisers & Funding Providers',
     category: 'government',
     background: [
-      'HSITP — tenancy + IGNITE + HA data access',
+      'HSITP — tenancy + IGNITE; HA Data Lab is HKSTP–HA programme (separate eligibility)',
       'FDCT — primary Macau research funder (MOP 2–5M)',
       'Shenzhen Sci-Tech — Strategic Emerging Industry Fund + Medical Research Fund (RMB 1.2–1.8M)',
     ],
     responsibilities: [
       'Provide grant funding and policy support',
       'Enable regulatory pathway for cross-border data',
-      'Hospital Authority Data Lab access for HSITP startups',
+      'HA Data Collaboration Lab: HKSTP tenant / InnoHK eligibility — verify separately from HSITP',
     ],
     budgetIn: ['Government public finance'],
     budgetOut: ['IGNITE HK$6M (awarded)', 'FDCT MOP 2–5M', 'Shenzhen Strategic Fund RMB 1.2M', 'Shenzhen Medical Research RMB 600K'],
@@ -262,14 +262,14 @@ export const stakeholders_zh: Stakeholder[] = [
     role: '政策授权者与资金提供者',
     category: 'government',
     background: [
-      'HSITP — 租赁 + IGNITE + 医管局数据访问',
+      'HSITP — 租赁 + IGNITE；医管局数据实验室为 HKSTP–医管局项目（资格需单独核实）',
       'FDCT — 澳门主要研究资助机构（MOP 2–5M）',
       '深圳科创委——战略性新兴产业专项资金 + 医学研究专项资金（RMB 1.2–1.8M）',
     ],
     responsibilities: [
       '提供拨款资金和政策支持',
       '开通跨境数据监管路径',
-      '港深创科园初创企业医管局数据实验室访问权',
+      '医管局数据合作实验室：须符合科技园租户 / InnoHK 等条件——与港深创科园租赁无自动挂钩',
     ],
     budgetIn: ['政府公共财政'],
     budgetOut: ['IGNITE HK$6M（已拨付）', 'FDCT MOP 2–5M', '深圳战略产业资金 RMB 1.2M', '深圳医学研究资金 RMB 600K'],

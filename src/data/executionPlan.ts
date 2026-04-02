@@ -47,7 +47,7 @@ export const regulatoryActions: RegulatoryAction[] = [
     status: 'in-progress',
     phase: 1,
     category: 'registration',
-    details: 'Minimum 1 desk tenancy (~HK$3,500/month). This is the prerequisite for ALL HSITP privileges including white-list status, IGNITE grant eligibility, and HA Data Lab access.',
+    details: 'Minimum 1 desk tenancy (~HK$3,500/month). Prerequisite for HSITP-specific privileges (e.g. white-list filing, IGNITE@HSITP). Note: HA Data Collaboration Lab is operated by HKSTP + HA — separate eligibility (HKSTP tenant / InnoHK), not automatic with HSITP tenancy alone.',
     risk: 'No risk — straightforward commercial lease. But delay here blocks everything downstream.',
   },
   {
@@ -281,16 +281,16 @@ export const regulatoryActions: RegulatoryAction[] = [
   {
     id: 'REG-18',
     jurisdiction: 'Hong Kong',
-    law: 'HSITP HA Data Lab Agreement',
-    action: 'Apply for Hospital Authority Data Collaboration Lab access',
+    law: 'HKSTP–HA Data Collaboration Lab',
+    action: 'Apply for Hospital Authority Data Collaboration Lab access (via HKSTP / InnoHK eligibility)',
     owner: 'MetaBee',
     deadline: '2028 Q4',
     dependencies: ['REG-01', 'REG-03'],
     status: 'not-started',
     phase: 3,
     category: 'data',
-    details: 'HSITP has formal HA collaboration agreement (200,000+ patient records). As HSITP tenant with proven cross-border compliance track record, MetaBee can apply for lab access to add HK prostate cancer cohort data to the dataset portfolio.',
-    risk: 'MEDIUM — competitive access, but MetaBee\'s compliance track record by this point is strong.',
+    details: 'HKSTP and HA jointly operate the Data Collaboration Lab (~200,000 anonymised records). Official eligibility: HKSTP incubatees, tenants, or InnoHK centre companies — not HSITP tenancy alone. May require HKSTP tenancy, partnership, or other approved pathway; confirm with HA/HKSTP.',
+    risk: 'MEDIUM — eligibility pathway must be mapped; service availability subject to HA/HKSTP announcements.',
   },
 ];
 

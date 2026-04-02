@@ -84,7 +84,7 @@ export const milestones: Milestone[] = [
     status: 'future',
     chips: ['5,000+ Patients', 'Multi-Cancer', 'Series B HK$80M'],
     details: [
-      'HA Data Lab integration; HK prostate cancer cohort added',
+      'HKSTP–HA Data Lab pathway (if eligible); HK prostate cancer cohort added',
       'Expand to colorectal cancer data (蔡\'s existing track record)',
       'Series B HK$80M target; expand to cardiovascular, diabetes, oncology',
     ],
@@ -168,7 +168,7 @@ export const milestones_zh: Milestone[] = [
     status: 'future',
     chips: ['5,000+ 患者', '多癌种', 'B 轮 HK$80M'],
     details: [
-      '医管局数据实验室对接；香港前列腺癌队列数据纳入',
+      '科技园–医管局数据实验室路径（若具备资格）；香港前列腺癌队列数据纳入',
       '扩展至结直肠癌数据（蔡錦輝既有研究记录）',
       'B 轮 HK$80M 目标；扩展至心血管、糖尿病、肿瘤',
     ],
