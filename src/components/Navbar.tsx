@@ -23,6 +23,24 @@ interface NavbarProps {
   onToggleTheme: () => void;
 }
 
+function nextLang(current: Lang): Lang {
+  if (current === 'en') return 'zh';
+  if (current === 'zh') return 'zh-public';
+  return 'en';
+}
+
+function langButtonLabel(lang: Lang): string {
+  if (lang === 'en') return '中文';
+  if (lang === 'zh') return '公开';
+  return 'EN';
+}
+
+function langButtonTitle(lang: Lang): string {
+  if (lang === 'en') return '切换到中文完整版';
+  if (lang === 'zh') return '切换到 SC-public-v2（不含具体人名）';
+  return 'Switch to English';
+}
+
 export default function Navbar({ theme, onToggleTheme }: NavbarProps) {
   const lang = useLang();
   const { setLang } = useLanguageCtx();
@@ -48,7 +66,7 @@ export default function Navbar({ theme, onToggleTheme }: NavbarProps) {
     return () => observer.disconnect();
   }, []);
 
-  const toggleLang = () => setLang((lang === 'en' ? 'zh' : 'en') as Lang);
+  const cycleLang = () => setLang(nextLang(lang));
 
   return (
     <>
@@ -73,13 +91,16 @@ export default function Navbar({ theme, onToggleTheme }: NavbarProps) {
           </ul>
 
           <div className="nav__right">
+            {lang === 'zh-public' && (
+              <span className="nav__badge" title="SC-public-v2">SC-public-v2</span>
+            )}
             <button
               className="btn-lang"
-              onClick={toggleLang}
-              aria-label="Switch language"
-              title={lang === 'en' ? '切换到中文' : 'Switch to English'}
+              onClick={cycleLang}
+              aria-label="Switch language variant"
+              title={langButtonTitle(lang)}
             >
-              {lang === 'en' ? '中文' : 'EN'}
+              {langButtonLabel(lang)}
             </button>
             <button className="btn-theme" onClick={onToggleTheme} aria-label="Toggle theme">
               {theme === 'light' ? '🌙' : '☀️'}

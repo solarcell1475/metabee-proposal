@@ -1,11 +1,10 @@
-import { vision } from '../data/vision';
-import { vision_zh } from '../data/vision';
+import { vision, vision_zh, vision_zh_public } from '../data/vision';
 import { useLang } from '../i18n/LanguageContext';
 import { t } from '../i18n/ui';
 
 export default function HeroSection() {
   const lang = useLang();
-  const v = lang === 'zh' ? vision_zh : vision;
+  const v = lang === 'zh-public' ? vision_zh_public : lang === 'zh' ? vision_zh : vision;
 
   return (
     <section id="hero" className="hero">

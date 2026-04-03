@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { milestones, milestones_zh } from '../data/timeline';
+import { milestones, milestones_zh, milestones_zh_public } from '../data/timeline';
 import { useLang } from '../i18n/LanguageContext';
 import { t } from '../i18n/ui';
 
 export default function TimelineSection() {
   const lang = useLang();
   const [expanded, setExpanded] = useState<Record<number, boolean>>({ 0: true });
-  const data = lang === 'zh' ? milestones_zh : milestones;
+  const data = lang === 'zh-public' ? milestones_zh_public : lang === 'zh' ? milestones_zh : milestones;
 
   const toggle = (idx: number) => {
     setExpanded((prev) => ({ ...prev, [idx]: !prev[idx] }));

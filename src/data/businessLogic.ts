@@ -90,3 +90,46 @@ export const businessLayers_zh: BusinessLayer[] = [
     ],
   },
 ];
+
+/** SC-public-v2：不出现具体人名与高校简称 */
+export const businessLayers_zh_public: BusinessLayer[] = [
+  {
+    id: 'academic',
+    number: 1,
+    title: '学术锚点',
+    subtitle: '公共利益 / 可信度',
+    color: 'var(--color-primary)',
+    steps: [
+      '合作高校传感器技术',
+      '学术论文 + IRB 伦理审批',
+      '前列腺癌筛查试验（澳门，约 500 名患者）',
+      '已发表的临床验证',
+    ],
+  },
+  {
+    id: 'data-asset',
+    number: 2,
+    title: '数据资产创建',
+    subtitle: '运营核心',
+    color: 'var(--color-gold)',
+    steps: [
+      '澳门试点数据 → 数据科学合作方 AI 整理 → FHIR 结构化数据集',
+      '深圳私立医院团队历史队列 → 3,000+ 患者数据集',
+      'IGNITE@HSITP（已获批）+ 香港医疗 AI + 澳门 FDCT + 深圳基金 → 运营资金',
+    ],
+  },
+  {
+    id: 'commercial',
+    number: 3,
+    title: '商业变现',
+    subtitle: '收入引擎',
+    color: 'var(--color-accent)',
+    steps: [
+      '港深创科园白名单出口 → MetaBee 数据市场',
+      '制药 RWE 研究（AstraZeneca、Roche Asia、GSK）',
+      'CRO 平台（IQVIA、Parexel Asia）',
+      'AI 药物发现（Insilico Medicine、BioMap）',
+      '学术授权（NUS、NCIS Singapore、MSKCC）',
+    ],
+  },
+];

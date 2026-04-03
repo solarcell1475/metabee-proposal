@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {
-  stakeholders, stakeholders_zh,
+  stakeholders, stakeholders_zh, stakeholders_zh_public,
   categoryLabels, categoryLabels_zh,
   type StakeholderCategory,
 } from '../data/stakeholders';
@@ -18,8 +18,8 @@ export default function StakeholderSection() {
 
   useFadeIn([filter, lang]);
 
-  const data = lang === 'zh' ? stakeholders_zh : stakeholders;
-  const labels = lang === 'zh' ? categoryLabels_zh : categoryLabels;
+  const data = lang === 'zh-public' ? stakeholders_zh_public : lang === 'zh' ? stakeholders_zh : stakeholders;
+  const labels = lang === 'zh' || lang === 'zh-public' ? categoryLabels_zh : categoryLabels;
   const filtered = filter === 'all' ? data : data.filter((s) => s.category === filter);
 
   return (

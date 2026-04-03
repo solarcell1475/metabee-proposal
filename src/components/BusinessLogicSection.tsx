@@ -1,10 +1,10 @@
-import { businessLayers, businessLayers_zh } from '../data/businessLogic';
+import { businessLayers, businessLayers_zh, businessLayers_zh_public } from '../data/businessLogic';
 import { useLang } from '../i18n/LanguageContext';
 import { t } from '../i18n/ui';
 
 export default function BusinessLogicSection() {
   const lang = useLang();
-  const data = lang === 'zh' ? businessLayers_zh : businessLayers;
+  const data = lang === 'zh-public' ? businessLayers_zh_public : lang === 'zh' ? businessLayers_zh : businessLayers;
 
   return (
     <section id="business" className="section section--alt">

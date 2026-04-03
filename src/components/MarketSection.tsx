@@ -1,10 +1,10 @@
 import { marketStats, buyerSegments, buyerSegments_zh, competitiveEdge, competitiveEdge_zh } from '../data/market';
-import { useLang } from '../i18n/LanguageContext';
+import { useLang, isChineseLang, type Lang } from '../i18n/LanguageContext';
 import { t } from '../i18n/ui';
 
-function priorityTag(priority: string, lang: 'en' | 'zh') {
+function priorityTag(priority: string, lang: Lang) {
   const cls = priority === 'high' ? 'tag--green' : priority === 'medium' ? 'tag--amber' : 'tag--red';
-  const label = lang === 'zh'
+  const label = isChineseLang(lang)
     ? (priority === 'high' ? '高' : priority === 'medium' ? '中' : '低')
     : priority.toUpperCase();
   return <span className={`tag ${cls}`}>{label}</span>;
@@ -12,8 +12,8 @@ function priorityTag(priority: string, lang: 'en' | 'zh') {
 
 export default function MarketSection() {
   const lang = useLang();
-  const segments = lang === 'zh' ? buyerSegments_zh : buyerSegments;
-  const edge = lang === 'zh' ? competitiveEdge_zh : competitiveEdge;
+  const segments = isChineseLang(lang) ? buyerSegments_zh : buyerSegments;
+  const edge = isChineseLang(lang) ? competitiveEdge_zh : competitiveEdge;
 
   const lead = t('market.lead', lang)
     .replace('{size}', marketStats.marketSize)

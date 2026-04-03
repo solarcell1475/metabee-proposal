@@ -33,6 +33,11 @@ function AppInner() {
 
   useFadeIn([lang]);
 
+  useEffect(() => {
+    const base = 'MetaBee × GBA Healthcare Data';
+    document.title = lang === 'zh-public' ? `${base} · SC-public-v2` : base;
+  }, [lang]);
+
   const toggleTheme = () => setTheme((t) => (t === 'light' ? 'dark' : 'light'));
 
   return (
@@ -53,7 +58,11 @@ function AppInner() {
         <CTASection />
       </main>
       <footer className="footer">
-        <p>{t('footer.text', lang)}</p>
+        <p>
+          {lang === 'zh-public'
+            ? 'MetaBee.com (HK) · Wasabi-GBA · SC-public-v2 · 公开版（不含具体人名）· 2026-03-30'
+            : t('footer.text', lang)}
+        </p>
       </footer>
     </>
   );

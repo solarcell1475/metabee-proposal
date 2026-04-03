@@ -5,7 +5,7 @@ import {
   totalExpenditure,
   netPosition,
 } from '../data/budget';
-import { useLang } from '../i18n/LanguageContext';
+import { useLang, isChineseLang } from '../i18n/LanguageContext';
 import { t } from '../i18n/ui';
 
 function probTag(p: string) {
@@ -15,8 +15,8 @@ function probTag(p: string) {
 
 export default function BudgetSection() {
   const lang = useLang();
-  const funding = lang === 'zh' ? fundingSources_zh : fundingSources;
-  const exp = lang === 'zh' ? expenditure_zh : expenditure;
+  const funding = isChineseLang(lang) ? fundingSources_zh : fundingSources;
+  const exp = isChineseLang(lang) ? expenditure_zh : expenditure;
 
   const lead = t('budget.lead', lang)
     .replace('{total}', totalFunding)

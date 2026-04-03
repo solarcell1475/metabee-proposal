@@ -1,12 +1,17 @@
-import { jurisdictions, jurisdictions_zh, transferStack, transferStack_zh, deidentStandard, deidentStandard_zh } from '../data/compliance';
+import {
+  jurisdictions, jurisdictions_zh,
+  transferStack, transferStack_zh,
+  deidentStandard, deidentStandard_zh, deidentStandard_zh_public,
+} from '../data/compliance';
+import { isChineseLang } from '../i18n/LanguageContext';
 import { useLang } from '../i18n/LanguageContext';
 import { t } from '../i18n/ui';
 
 export default function ComplianceSection() {
   const lang = useLang();
-  const jur = lang === 'zh' ? jurisdictions_zh : jurisdictions;
-  const stack = lang === 'zh' ? transferStack_zh : transferStack;
-  const deident = lang === 'zh' ? deidentStandard_zh : deidentStandard;
+  const jur = isChineseLang(lang) ? jurisdictions_zh : jurisdictions;
+  const stack = isChineseLang(lang) ? transferStack_zh : transferStack;
+  const deident = lang === 'zh-public' ? deidentStandard_zh_public : lang === 'zh' ? deidentStandard_zh : deidentStandard;
 
   return (
     <section id="compliance" className="section">

@@ -27,3 +27,19 @@ export const vision_zh = {
     { value: 'R²=0.97', label: '临床验证' },
   ],
 } as const;
+
+/** Simplified Chinese public deck: no personal names; marked SC-public-v2 */
+export const vision_zh_public = {
+  codename: 'Wasabi-GBA · SC-public-v2',
+  version: 'SC-public-v2',
+  date: '2026-03-30',
+  owner: 'MetaBee.com (HK) / 港深创科园初创企业',
+  oneLiner:
+    '以合作高校研发的非侵入性前列腺癌尿液检测技术为学术锚点，构建符合大湾区合规要求的真实世界健康数据（RWD）资产，从澳门起步、扩展至深圳，再通过 MetaBee.com (HK) 作为港深创科园特许数据经纪商，向全球制药公司提供去标识化纵向数据集。',
+  heroStats: [
+    { value: '3,000+', label: '患者记录' },
+    { value: 'HK$6M', label: 'IGNITE 拨款' },
+    { value: '15 分钟', label: '检测结果' },
+    { value: 'R²≈0.97', label: '临床验证' },
+  ],
+} as const;

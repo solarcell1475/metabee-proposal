@@ -153,6 +153,14 @@ a:hover { text-decoration: underline; }
 .nav__links a:hover { color: var(--color-text); background: var(--color-surface-offset); text-decoration: none; }
 .nav__links a.active { color: var(--color-primary); background: var(--color-primary-light); }
 .nav__right { display: flex; align-items: center; gap: var(--space-3); flex-shrink: 0; }
+.nav__badge {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+  padding: 4px 8px; border-radius: var(--radius-sm);
+  background: var(--color-primary-light); color: var(--color-primary);
+  border: 1px solid var(--color-primary-highlight);
+  white-space: nowrap;
+}
+@media (max-width: 900px) { .nav__badge { display: none; } }
 .btn-lang {
   padding: var(--space-1) var(--space-3); border-radius: var(--radius-full);
   background: var(--color-primary); color: #fff;

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { risks, risks_zh } from '../data/risks';
+import { risks, risks_zh, risks_zh_public } from '../data/risks';
 import { useLang } from '../i18n/LanguageContext';
 import { t } from '../i18n/ui';
 import { useFadeIn } from '../hooks/useFadeIn';
@@ -25,7 +25,7 @@ export default function RiskSection() {
 
   useFadeIn([filterLevel, lang]);
 
-  const data = lang === 'zh' ? risks_zh : risks;
+  const data = lang === 'zh-public' ? risks_zh_public : lang === 'zh' ? risks_zh : risks;
   const filtered = filterLevel === 'all'
     ? data
     : data.filter((r) => r.probability === filterLevel || r.impact === filterLevel);

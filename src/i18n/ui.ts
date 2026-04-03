@@ -205,5 +205,6 @@ const translations = {
 type TranslationKey = keyof typeof translations;
 
 export function t(key: TranslationKey, lang: Lang): string {
-  return translations[key]?.[lang] ?? translations[key]?.en ?? key;
+  const L = lang === 'zh-public' ? 'zh' : lang;
+  return translations[key]?.[L] ?? translations[key]?.en ?? key;
 }

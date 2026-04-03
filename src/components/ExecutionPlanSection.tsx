@@ -7,7 +7,8 @@ import {
   categoryLabels, categoryLabels_zh,
   type ActionCategory,
 } from '../data/executionPlan';
-import { useLang } from '../i18n/LanguageContext';
+import { anonymizeExecutionPlanTextForPublic } from '../data/executionPlanPublicZh';
+import { useLang, type Lang, isChineseLang } from '../i18n/LanguageContext';
 import { t } from '../i18n/ui';
 import { useFadeIn } from '../hooks/useFadeIn';
 
@@ -15,7 +16,7 @@ const allCategories: Array<ActionCategory | 'all'> = [
   'all', 'registration', 'ethics', 'contract', 'grant', 'data', 'commercial',
 ];
 
-function statusLabel(status: string, lang: 'en' | 'zh') {
+function statusLabel(status: string, lang: Lang) {
   switch (status) {
     case 'completed': return t('exec.status.done', lang);
     case 'in-progress': return t('exec.status.active', lang);
@@ -41,9 +42,11 @@ export default function ExecutionPlanSection() {
 
   useFadeIn([activePhase, activeCategory, lang]);
 
-  const phases = lang === 'zh' ? executionPhases_zh : executionPhases;
-  const principles = lang === 'zh' ? executionPrinciples_zh : executionPrinciples;
-  const catLabels = lang === 'zh' ? categoryLabels_zh : categoryLabels;
+  const phases = isChineseLang(lang) ? executionPhases_zh : executionPhases;
+  const principles = isChineseLang(lang) ? executionPrinciples_zh : executionPrinciples;
+  const catLabels = isChineseLang(lang) ? categoryLabels_zh : categoryLabels;
+
+  const fmt = (s: string) => (lang === 'zh-public' ? anonymizeExecutionPlanTextForPublic(s) : s);
 
   const filtered = regulatoryActions.filter((a) => {
     if (activePhase !== 'all' && a.phase !== activePhase) return false;
@@ -76,7 +79,7 @@ export default function ExecutionPlanSection() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)', marginBottom: 'var(--space-10)' }}>
           {criticalPath.map((path, i) => (
             <div key={i} className="fade-in" style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-lg)', padding: 'var(--space-3) var(--space-5)', fontFamily: 'monospace', fontSize: 'var(--text-sm)', color: 'var(--color-primary)', fontWeight: 600 }}>
-              {path}
+              {fmt(path)}
             </div>
           ))}
         </div>
@@ -128,8 +131,8 @@ export default function ExecutionPlanSection() {
                       <span className="tag tag--amber">{a.jurisdiction}</span>
                       <span className="tag" style={{ background: 'var(--color-surface-offset)', color: 'var(--color-text-muted)' }}>{catLabels[a.category]}</span>
                     </div>
-                    <div className="risk-name">{a.action}</div>
-                    <div className="risk-desc">{a.law} · {t('exec.owner', lang)}: {a.owner} · {t('exec.deadline', lang)}: {a.deadline}</div>
+                    <div className="risk-name">{fmt(a.action)}</div>
+                    <div className="risk-desc">{fmt(a.law)} · {t('exec.owner', lang)}: {fmt(a.owner)} · {t('exec.deadline', lang)}: {a.deadline}</div>
                   </div>
                   <div style={{ display: 'flex', gap: 'var(--space-2)', flexShrink: 0 }}>
                     <span className="risk-badge" style={{ background: sc.bg, color: sc.color }}>{statusLabel(a.status, lang)}</span>
@@ -138,14 +141,14 @@ export default function ExecutionPlanSection() {
                 </div>
                 {isExpanded && (
                   <div style={{ marginTop: 'var(--space-4)', paddingTop: 'var(--space-3)', borderTop: '1px solid var(--color-divider)' }}>
-                    <p style={{ fontSize: 'var(--text-sm)', marginBottom: 'var(--space-3)' }}>{a.details}</p>
+                    <p style={{ fontSize: 'var(--text-sm)', marginBottom: 'var(--space-3)' }}>{fmt(a.details)}</p>
                     {a.dependencies.length > 0 && (
                       <p style={{ fontSize: 'var(--text-xs)', color: 'var(--color-text-muted)', marginBottom: 'var(--space-2)' }}>
                         <strong>{t('exec.dependencies', lang)}:</strong> {a.dependencies.join(' → ')}
                       </p>
                     )}
                     <p style={{ fontSize: 'var(--text-xs)', color: 'var(--color-accent)' }}>
-                      <strong>{t('exec.risk', lang)}:</strong> {a.risk}
+                      <strong>{t('exec.risk', lang)}:</strong> {fmt(a.risk)}
                     </p>
                   </div>
                 )}
