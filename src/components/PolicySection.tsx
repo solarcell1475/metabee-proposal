@@ -1,10 +1,10 @@
-import { policyWindows, policyWindows_zh } from '../data/policyWindows';
+import { policyWindows, policyWindows_zh, policyWindows_zh_public } from '../data/policyWindows';
 import { useLang, isChineseLang } from '../i18n/LanguageContext';
 import { t } from '../i18n/ui';
 
 export default function PolicySection() {
   const lang = useLang();
-  const data = isChineseLang(lang) ? policyWindows_zh : policyWindows;
+  const data = lang === 'zh-public' ? policyWindows_zh_public : isChineseLang(lang) ? policyWindows_zh : policyWindows;
 
   return (
     <section id="policy" className="section">

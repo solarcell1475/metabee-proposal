@@ -1,10 +1,10 @@
-import { hsitpPrivileges, hsitpPrivileges_zh } from '../data/hsitp';
+import { hsitpPrivileges, hsitpPrivileges_zh, hsitpPrivileges_zh_public } from '../data/hsitp';
 import { useLang, isChineseLang } from '../i18n/LanguageContext';
 import { t } from '../i18n/ui';
 
 export default function HSITPSection() {
   const lang = useLang();
-  const data = isChineseLang(lang) ? hsitpPrivileges_zh : hsitpPrivileges;
+  const data = lang === 'zh-public' ? hsitpPrivileges_zh_public : isChineseLang(lang) ? hsitpPrivileges_zh : hsitpPrivileges;
 
   return (
     <section id="hsitp" className="section">

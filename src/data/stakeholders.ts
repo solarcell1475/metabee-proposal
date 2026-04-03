@@ -328,7 +328,7 @@ export const stakeholders_zh_public: Stakeholder[] = [
     title: '深圳 · 私立医疗机构 · 泌尿/检验与科研管理',
     emoji: '🏥',
     colorClass: 'blue',
-    role: '大湾区内地临床入口与患者队列构建（承担原公立大学医院合作方职能）',
+    role: '大湾区内地临床入口与患者队列构建（私立医院侧协同）',
     category: 'clinical',
     background: [
       '深圳本地私立医疗集团及合作医院网络',
