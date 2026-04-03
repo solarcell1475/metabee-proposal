@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLang, useLanguageCtx, type Lang } from '../i18n/LanguageContext';
 import { t } from '../i18n/ui';
+import { isPublicGithubSite } from '../config/site';
 
 const sectionIds = ['hero', 'policy', 'business', 'hsitp', 'stakeholders', 'timeline', 'market', 'compliance', 'risks', 'budget', 'execution'] as const;
 
@@ -24,18 +25,29 @@ interface NavbarProps {
 }
 
 function nextLang(current: Lang): Lang {
+  if (isPublicGithubSite) {
+    return current === 'en' ? 'zh-public' : 'en';
+  }
   if (current === 'en') return 'zh';
   if (current === 'zh') return 'zh-public';
   return 'en';
 }
 
 function langButtonLabel(lang: Lang): string {
+  if (isPublicGithubSite) {
+    return lang === 'en' ? '中文（公开）' : 'EN';
+  }
   if (lang === 'en') return '中文';
   if (lang === 'zh') return '公开';
   return 'EN';
 }
 
 function langButtonTitle(lang: Lang): string {
+  if (isPublicGithubSite) {
+    return lang === 'en'
+      ? '切换到简体中文公开版（SC-public-v2，不含具体人名）'
+      : 'Switch to English';
+  }
   if (lang === 'en') return '切换到中文完整版';
   if (lang === 'zh') return '切换到 SC-public-v2（不含具体人名）';
   return 'Switch to English';
